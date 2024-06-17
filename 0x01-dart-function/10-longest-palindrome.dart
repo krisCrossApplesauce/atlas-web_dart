@@ -1,50 +1,52 @@
 String longestPalindrome(String s) {
   String longest = '';
   String cPal = ''; // c stands for current, Pal is short for Palindrome
-  String current = '';
-  int? cMid = null; // c stands for current
-  bool isPalindrome = false;
+  Map middles = {'oddMiddles': [], 'evenMiddles': []};
+  bool isPal = true;
+  int m;
 
-  for (var i = 0; i < s.length; i++) {
-    if (!current.contains(s[i]) && cMid == null) {
-      current += s[i];
-//
-    } else if (cMid == null) {
-      if (s[i] == current[current.length - 1]) {
-        cMid = current.length;
-        current += s[i];
-        cPal = current.substring(cMid - 1, current.length);
-      } else if (s[i] == current[current.length - 2]) {
-        cMid = current.length - 1;
-        current += s[i];
-        cPal = current.substring(cMid - 1, current.length);
-      } else {
-        cPal = '';
-        current += s[i];
-      }
-//
-    } else if (!current.contains(s[i]) || isPalindrome == true) {
-      current = s[i];
-//
-    } else {
-      if (s[i] == current[cMid - (current.length - cMid)]) {}
+  for (var i = 2; i < s.length; i++) {
+    if (s[i] == s[i - 1]) {
+      middles['evenMiddles'].add(i);
     }
-
-    if (current.length > 3) {
-      isPalindrome = true;
-      for (var i = 0; i < (current.length / 2); i++) {
-        if (current[i] != current[current.length - i - 1]) {
-          isPalindrome = false;
-        }
-      }
-    }
-
-    if (current.length > 3 && current.length > longest.length && isPalindrome) {
-      longest = current;
+    if (s[i] == s[i - 2]) {
+      middles['oddMiddles'].add(i - 1);
     }
   }
 
-  if (longest.length == '') { longest = 'none'; }
+  for (var ii = 0; ii < middles['oddMiddles'].length; ii++) {
+    m = middles['oddMiddles'][ii];
+    isPal = true;
+    cPal = s[m];
+    for (var i = 1; isPal == true && i <= m && i < s.length - m; i++) {
+      cPal = s[m - i] + cPal + s[m + i];
+      if (cPal[0] != cPal[cPal.length - 1]) {
+        isPal = false;
+        cPal = '';
+      }
+      if (cPal.length > longest.length) {
+        longest = cPal;
+      }
+    }
+  }
+
+  for (var ii = 0; ii < middles['evenMiddles'].length; ii++) {
+    m = middles['evenMiddles'][ii];
+    isPal = true;
+    cPal = '';
+    for (var i = 0; isPal == true && i < m && i < s.length - m; i++) {
+      cPal = s[m - i - 1] + cPal + s[m + i];
+      if (cPal[0] != cPal[cPal.length - 1]) {
+        isPal = false;
+        cPal = '';
+      }
+      if (cPal.length > longest.length) {
+        longest = cPal;
+      }
+    }
+  }
+
+  if (longest.length < 3) { longest = 'none'; }
 
   return longest;
 }

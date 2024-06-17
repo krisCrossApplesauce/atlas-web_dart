@@ -4,4 +4,5 @@ main() {
   print(longestPalindrome("abcde"));
   print(longestPalindrome("azeghjhg"));
   print(longestPalindrome("aaabvf"));
+  // print('longest palindrome: ' + longestPalindrome("abbaaabba"));
 }
