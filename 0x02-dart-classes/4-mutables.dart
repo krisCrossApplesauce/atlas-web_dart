@@ -5,13 +5,13 @@ class Password {
     _password = password;
   }
 
-  // String? get password {
-  //   return _password;
-  // }
+  String? get password {
+    return _password;
+  }
 
-  // set password(String? password) {
-  //   _password = password;
-  // }
+  set password(String? password) {
+    _password = password;
+  }
 
   bool? isValid() {
     if (_password!.length >= 8
@@ -20,7 +20,7 @@ class Password {
       && _password!.contains(RegExp(r'[a-z]'))
       && _password!.contains(RegExp(r'[0-9]'))
     ) return true;
-    // return false;
+    return false;
   }
 
   @override
