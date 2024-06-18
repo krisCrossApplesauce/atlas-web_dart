@@ -1,9 +1,9 @@
 class Password {
   String? _password;
 
-  // Password({required String password}) {
-  //   _password = password;
-  // }
+  Password({required String password}) {
+    _password = password;
+  }
 
   // String? get password {
   //   return _password;
@@ -23,8 +23,8 @@ class Password {
     // return false;
   }
 
-  // @override
-  // String toString() {
-  //   return 'Your Password is: ' + _password!;
-  // }
+  @override
+  String toString() {
+    return 'Your Password is: ' + _password!;
+  }
 }
