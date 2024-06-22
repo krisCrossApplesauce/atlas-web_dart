@@ -7,7 +7,7 @@ Future<String> printRmCharacters() async {
     List RmCharacters = jsonDecode(RmCharactersResponse.body)['results'];
     String RmCharacterNames = '';
     for (int i = 0; i < RmCharacters.length; i++) {
-      print(RmCharacters[i]['name']);
+      // print(RmCharacters[i]['name']);
       RmCharacterNames += RmCharacters[i]['name'];
     }
     return RmCharacterNames;
