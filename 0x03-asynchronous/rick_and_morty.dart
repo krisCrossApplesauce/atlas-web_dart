@@ -9,8 +9,6 @@ Future<void> printRmCharacters() async {
       for (var char in rmCharacters) {
         print(char['name']);
       }
-    } else {
-      throw Exception('Failed to load data');
     }
   } catch (err) {
     print('error caught: $err');
