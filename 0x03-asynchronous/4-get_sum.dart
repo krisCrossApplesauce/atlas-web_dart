@@ -1,7 +1,7 @@
 import '4-util.dart';
 import 'dart:convert';
 
-Future<double> calculateTotal() async {
+Future<String> calculateTotal() async {
   try {
     Map user = jsonDecode(await fetchUserData());
     List orders = jsonDecode(await fetchUserOrders(user["id"]));
@@ -9,8 +9,8 @@ Future<double> calculateTotal() async {
     for (var i = 0; i < orders.length; i++) {
       total += double.parse(await fetchProductPrice(orders[i]));
     }
-    return total;
+    return total.toString();
   } catch (err) {
-    return -1;
+    return '-1';
   }
 }
