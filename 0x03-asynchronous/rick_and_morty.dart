@@ -3,14 +3,11 @@ import 'dart:convert';
 
 Future<void> printRmCharacters() async {
   try {
-    http.Response RmCharactersResponse = await http.get(Uri.parse('https://rickandmortyapi.com/api/character/'));
-    List RmCharacters = jsonDecode(RmCharactersResponse.body)['results'];
-    // String RmCharacterNames = '';
-    for (int i = 0; i < RmCharacters.length; i++) {
-      print(RmCharacters[i]['name']);
-      // RmCharacterNames += RmCharacters[i]['name'];
+    http.Response response = await http.get(Uri.parse('https://rickandmortyapi.com/api/character/'));
+    List rmCharacters = jsonDecode(response.body)['results'];
+    for (int i = 0; i < rmCharacters.length; i++) {
+      print(rmCharacters[i]['name']);
     }
-    // return RmCharacterNames;
   } catch (err) {
     print('error caught: $err');
   }
