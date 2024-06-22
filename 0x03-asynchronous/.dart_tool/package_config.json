@@ -15,9 +15,9 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///home/kris_cross_applesauce/.pub-cache/hosted/pub.dev/http-0.13.6",
+      "rootUri": "file:///home/kris_cross_applesauce/.pub-cache/hosted/pub.dev/http-1.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.3"
     },
     {
       "name": "http_parser",
@@ -62,13 +62,19 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "web",
+      "rootUri": "file:///home/kris_cross_applesauce/.pub-cache/hosted/pub.dev/web-0.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "rick_and_morty",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2024-06-22T18:13:58.960132Z",
+  "generated": "2024-06-22T18:38:21.766174Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///home/kris_cross_applesauce/atlas-web_dart/flutter",
